@@ -13,7 +13,8 @@ server.on('connect', () => {
   console.log(`Server Connection Established`);
 });
 
-server.on('message',(msg) => {
-  console.log(`Message Recieved ${msg.toString()}`)
+server.on('message',(msg,info) => {
+  console.log(`Message Recieved ${msg.toString()} from ${info} on ${info.port}`);
+  server.send(Buffer.from(msg.toString()), info.port, 'localhost')
 });
 server.bind(PORT,ADDRESS);
