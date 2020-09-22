@@ -10,5 +10,5 @@ s.on('message',function(msg,info){
 });
 
 s.connect(PORT,ADDRESS, () =>{
-    s.send(Buffer.from('Hello World'));
+    s.send(Buffer.from('GET test'));
 });
